@@ -2,6 +2,7 @@ const {
   DirectiveLocation,
   GraphQLDirective,
   GraphQLString,
+  defaultFieldResolver,
 } = require('graphql');
 const { SchemaDirectiveVisitor } = require('graphql-tools');
 
@@ -17,16 +18,22 @@ class computedDirective extends SchemaDirectiveVisitor {
   }
 
   visitFieldDefinition(field) {
-    field.resolve = root => {
-      let computed = this.args.value;
+    const { resolve = defaultFieldResolver, name } = field;
 
-      for (const property in root) {
-        if (Object.prototype.hasOwnProperty.call(root, property)) {
-          computed = computed.replace(`$${property}`, root[property]);
+    field.resolve = async (root, args, context, info) => {
+      const result = await resolve.call(this, root, args, context, info);
+
+      const updatedRoot = Object.assign(root, { [name]: result });
+
+      let value = this.args.value;
+
+      for (const property in updatedRoot) {
+        if (Object.prototype.hasOwnProperty.call(updatedRoot, property)) {
+          value = value.replace(`$${property}`, updatedRoot[property]);
         }
       }
 
-      return computed;
+      return value;
     };
   }
 }
