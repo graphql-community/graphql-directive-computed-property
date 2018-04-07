@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getDirectiveDeclaration should be defined 1`] = `
+GraphQLDirective {
+  "args": Array [
+    Object {
+      "astNode": undefined,
+      "defaultValue": undefined,
+      "description": null,
+      "name": "value",
+      "type": "String",
+    },
+  ],
+  "astNode": undefined,
+  "description": undefined,
+  "locations": Array [
+    "FIELD_DEFINITION",
+  ],
+  "name": "rest",
+}
+`;
+
+exports[`if return computed property 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "firstName": "John",
+      "fullName": "John Doe",
+      "lastName": "Doe",
+    },
+  },
+}
+`;
