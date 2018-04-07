@@ -1,10 +1,14 @@
 const { makeExecutableSchema } = require('graphql-tools');
 const computedDirective = require('../index');
+const restDirective = require('graphql-directive-rest');
+
+const ADMIN_URL = 'https://yesno.wtf/api';
 
 const typeDefs = `
   type User {
     firstName: String
     lastName: String
+    admin: String @rest(url: "${ADMIN_URL}" extractFromResponse: "answer") @computed(value: "Are you admin? $admin")
     fullName: String @computed(value: "$firstName $lastName")
   }
 
@@ -27,5 +31,6 @@ module.exports = makeExecutableSchema({
   resolvers,
   schemaDirectives: {
     computed: computedDirective,
+    rest: restDirective,
   },
 });

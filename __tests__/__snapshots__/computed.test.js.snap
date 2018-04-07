@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`check if not replace original resolver 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "admin": "Are you admin? yes",
+      "firstName": "John",
+      "lastName": "Doe",
+    },
+  },
+}
+`;
+
 exports[`getDirectiveDeclaration should be defined 1`] = `
 GraphQLDirective {
   "args": Array [

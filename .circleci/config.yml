@@ -8,7 +8,6 @@ test-defaults: &test-defaults
     - run: |
         yarn lint
         yarn test
-
 jobs:
   install-dependencies:
     working_directory: ~/graphql-directive-uid
@@ -55,7 +54,6 @@ jobs:
       - run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
           npm publish
-
 workflows:
   version: 2
   build-and-test:

@@ -79,6 +79,12 @@ Result:
   fullName: 'John Doe'
 }
 ```
+### Computed property work well with other directives like [@rest](https://www.npmjs.com/package/graphql-directive-rest):
+
+Example:
+
+```admin: String @rest(url: "${URL_TO_API}") @computed(value: "Are you admin? $admin")```
+
 
 # Directive Parameters
 
