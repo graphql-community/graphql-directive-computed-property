@@ -30,7 +30,7 @@ _This package requires [graphql](https://www.npmjs.com/package/graphql) and [gra
 
 ```js
 const { makeExecutableSchema } = require('graphql-tools');
-const computedDirective = require('../index');
+const computedDirective = require('graphql-directive-computed-property');
 
 const typeDefs = `
   type User {
