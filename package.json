@@ -1,6 +1,6 @@
 {
   "name": "graphql-directive-computed-property",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GraphQL directive for create computed property",
   "main": "dist/index.js",
   "repository": "git@github.com:graphql-community/graphql-directive-computed-property.git",
