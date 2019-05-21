@@ -29,7 +29,10 @@ class computedDirective extends SchemaDirectiveVisitor {
 
       for (const property in updatedRoot) {
         if (Object.prototype.hasOwnProperty.call(updatedRoot, property)) {
-          value = value.replace(`$${property}`, updatedRoot[property]);
+          value = value.replace(
+            new RegExp(`\\$${property}`, 'g'),
+            updatedRoot[property]
+          );
         }
       }
 
